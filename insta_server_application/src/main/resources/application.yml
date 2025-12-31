@@ -1,0 +1,41 @@
+server:
+   port: 8080
+spring:
+   main:
+      allow-bean-definition-overriding: false
+   mvc:
+      log-request-details: true
+   datasource:
+      url: ${LIL_INSTA_DB_URL}
+      username: ${LIL_INSTA_USERNAME}
+      password: ${LIL_INSTA_PASSWORD}
+      driver-class-name: org.postgresql.Driver
+   jpa:
+      hibernate.ddl-auto: update
+      show-sql: true
+      properties:
+         hibernate:
+            dialect: org.hibernate.dialect.PostgreSQLDialect
+   # kafka:
+   #    listener:
+   #       auto-startup: false
+   # logging:
+   #    level:
+   #       org.springframework.kafka: WARN
+management:
+   endpoints:
+      web:
+         exposure:
+            include: health
+      health:
+         probes:
+            enabled: true
+logging:
+   level:
+      root: INFO
+      org.springframework.web: DEBUG
+      org.springframework.security: DEBUG
+      org.springframework.web.filter.CorsFilter: DEBUG
+      org.springframework.web.servlet.DispatcherServlet: DEBUG
+      org.hibernate.SQL: DEBUG
+      org.hibernate.type.descriptor.sql.BasicBinder: TRACE

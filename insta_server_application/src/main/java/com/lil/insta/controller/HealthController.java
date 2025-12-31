@@ -1,0 +1,16 @@
+package com.lil.insta.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+// If using Spring Boot Actuator
+@RestController
+@RequestMapping("/auth") 
+public class HealthController {
+    @GetMapping("/health")
+    public ResponseEntity<String> health() {
+        return ResponseEntity.ok("OK");
+    }
+}
